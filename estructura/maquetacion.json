@@ -1,0 +1,109 @@
+{
+    "albums": [
+      {
+        "album_name": "Album 1",
+        "copies_sold": 100
+      },
+      {
+        "album_name": "Album 2",
+        "copies_sold": 200
+      },
+      {
+        "album_name": "Album 3",
+        "copies_sold": 150
+      },
+      {
+        "album_name": "Album 4",
+        "copies_sold": 300
+      },
+      {
+        "album_name": "Album 5",
+        "copies_sold": 50
+      }
+    ]
+  }
+  {
+    "bands": [
+      {
+        "band_name": "Pink Floyd",
+        "genre": "Rock"
+      },
+      {
+        "band_name": "Iron Maiden",
+        "genre": "Metal"
+      },
+      {
+        "band_name": "AC/DC",
+        "genre": "Rock"
+      },
+      {
+        "band_name": "Metallica",
+        "genre": "Metal"
+      },
+      {
+        "band_name": "Alice Cooper",
+        "genre": "Rock"
+      }
+    ]
+  }
+  {
+    "genres": [
+      {
+        "genre": "Rock",
+        "count": 3
+      },
+      {
+        "genre": "Metal",
+        "count": 2
+      }
+    ]
+  }
+  {
+    "concerts": [
+      {
+        "place": "Ciudad de México",
+        "concerts_count": 15
+      },
+      {
+        "place": "Nueva York",
+        "concerts_count": 10
+      },
+      {
+        "place": "Londres",
+        "concerts_count": 12
+      },
+      {
+        "place": "Los Ángeles",
+        "concerts_count": 8
+      },
+      {
+        "place": "Sao Paulo",
+        "concerts_count": 6
+      }
+    ]
+  }
+  {
+    "albums": [
+      {
+        "album_name": "Album 1",
+        "decade": "70's"
+      },
+      {
+        "album_name": "Album 2",
+        "decade": "80's"
+      },
+      {
+        "album_name": "Album 3",
+        "decade": "80's"
+      },
+      {
+        "album_name": "Album 4",
+        "decade": "90's"
+      },
+      {
+        "album_name": "Album 5",
+        "decade": "00's"
+      }
+    ]
+  }
+      

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="maquetación.js">
+    <link rel="stylesheet" href="maquetación.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Music Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navigation">
+        <ul>
+        <li><a href="Inicio.html">INICIO</a></li>
+        <li><a href="maquetación.html">AGREGAR DATOS</a></li>
+        <li><a href="graficas.html">CONSULTAR GRÁFICAS</a></li>
+        </ul>
+        </nav>
+    </div>
+</header>
+        <div class="content">
+            <h1>Music Dashboard</h1>
+            <div id="graph1"></div>
+            <div id="graph2"></div>
+            <div id="graph3"></div>
+            <div id="graph4"></div>
+            <div id="graph5"></div>
+            <button onclick="graficarBandasPorGenero()">Género</button>
+            <br>
+            <button onclick="graficarCopiasVendidas()">Copias vendidas</button>
+            <br>
+            <button onclick="graficarBandasPorPais()">Bandas por País</button>
+            <br>
+            <button onclick="graficarConciertosPorCiudad()">Conciertos por Ciudad</button>
+            <br>
+            <button onclick="graficarAlbumesPorDecada()">Álbumes por década</button>
+        </div>
+        
+        <script src="maquetación.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="maquetación.css">
+    <link rel="stylesheet" href="maquetación.js">
+    <link rel="stylesheet" href="maquetacion.json">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    </head>
+    <header class="header">
+        <nav class="navigation">
+        <ul>
+        <li><a href="Inicio.html">INICIO</a></li>
+        <li><a href="maquetación.html">AGREGAR DATOS</a></li>
+        <li><a href="graficas.html">CONSULTAR GRÁFICAS</a></li>
+        </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="content">
+    <h1>Formulario de álbumes</h1>
+        <form action="http://localhost/api.php" method="post">
+            <label for="band_id"><h2>Banda:</h2></label>
+            <select id="band_id" name="band_id">
+                <option value="1">Pink Floyd</option>
+                <option value="2">Iron Maiden</option>
+                <option value="3">AC/DC</option>
+                <option value="4">Metallica</option>
+                <option value="5">Alice Cooper</option>
+                <option value="6">Kiss</option>
+                <option value="7">Europe</option>
+                <option value="8">Motorhead</option>
+                <option value="9">Kreator</option>
+                <option value="10">Kraken</option>
+            </select>
+            <br>
+    <h2>Nombre:</h2>
+            <input type="text" id="name" name="name" required>
+            <br>
+    <h2>Fecha de lanzamiento:</h2>
+    <label for="release_date"></label>
+    <input type="text" id="release_date" name="release_date" readonly>
+    <br>
+    <h2>Lugar:</h2>
+        <input type="text" id="place" name="place" required>
+        <br>
+        <h2>Duración (en minutos):</h2>
+            <input type="text" id="duration" name="duration" title="Ingresa solo números" required>
+            <br>
+        <h2>Copias vendidas:</h2>
+        <input type="text" id="copies_sold" name="copies_sold" required>
+        <br><br>
+        <input type="submit" value="EnviarFormulario" onclick="enviarFormulario()">
+        </form>
+    </div>
+        <footer class="footer">
+            <div class="container">
+                <h1>Creadoras:</h1>
+                <ul>
+                    <li>Diana Ailyn Fabela Peralta</li>
+                    <li>Gadi Medero</li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+        <script>
+    function enviarFormulario() {
+        // Obtener los datos del formulario
+        const formData = new FormData(document.getElementById('myForm'));
+
+        // Realizar la solicitud fetch a api.php (ruta absoluta)
+        fetch('http://localhost/api.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+            // Aquí puedes manejar la respuesta del servidor, si es necesario
+            console.log(result);
+        })
+        .catch(error => {
+            // Manejar errores si ocurrieron durante la solicitud
+            console.error('Error:', error);
+        });
+    }
+    // Funcion para consultar la gráfica nuevamente
+    function consultarGrafica() {
+            fetch('http://localhost/api.php')
+            .then(response => response.json())
+                .then(data => {
+                    var xData = data.map(item => item.release_date);
+                    var yData = data.map(item => item.copies_sold);
+                    var trace = {
+                        x: xData,
+                        y: yData,
+                        type: 'bar',
+                        name: 'Ventas',
+                        marker: {
+                            color: 'rgb(55, 83, 109)'
+                        }
+                    };
+                    var layout = {
+                        title: 'Ventas de álbumes',
+                        xaxis: {
+                            title: 'Fecha de lanzamiento'
+                        },
+                        yaxis: {
+                            title: 'Copias vendidas'
+                        }
+                    };
+
+                    Plotly.newPlot('graph', [trace], layout);
+            })
+        .catch(error => {
+            // Manejar errores si ocurrieron durante la solicitud
+            console.error('Error:', error);
+        });
+    }
+                
+    </script>
+    <script>
+            $(document).ready(function() {
+                $("#release_date").datepicker({
+                    dateFormat: "dd-mm-yy", 
+                    changeMonth: true,      
+                    changeYear: true,      
+                    yearRange: "1900:2050"   
+                });
+            });
+        </script>
+</body>
+</html>
